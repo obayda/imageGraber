@@ -1,0 +1,11 @@
+{
+  "name": "puppeteer",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "index.js",
+  "author": "Obaydah Saad <obaydaha@menoramivt.co.il>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.5.1"
+  }
+}
