@@ -6,7 +6,7 @@
   "author": "Obaydah Saad",
   "license": "MIT",
   "scripts": {
-    "build": "sh ./render-build.sh"
+    "build": "bash ./render-build.sh"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
