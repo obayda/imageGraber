@@ -3,7 +3,11 @@ const puppeteer = require('puppeteer');
 async function getImage(req) {
     const { barcode: query } = req?.body;
 
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({
+        executablePath: '/usr/bin/chromium-browser',
+        headless: 'new',
+        slowMo: undefined
+    });
     const page = await browser.newPage();
 
     await page.goto(`https://www.google.com/search?tbm=isch&q=${query}`);
