@@ -9,23 +9,35 @@ async function getImage(req) {
 
     await page.goto(`https://www.google.com/search?tbm=isch&q=${query}`);
 
-    const selector = '[tabindex="0"]'
+    const data = await page.content()
 
-    await page.waitForSelector(selector, { timeout: 3000 });
-    const elements = await page.$$(selector);
+    return data;
 
-    let link;
+    // const selector = '[tabindex="0"]'
 
-    for (const [index, element] of elements.entries()) {
-        if (index === 17) {
-            await element.click();
-            link = await element?.evaluate((el) => el.href);
-        }
-    }
+    // await page.waitForSelector(selector, { timeout: 3000 });
+    // const elements = await page.$$(selector);
 
-    const decoded = decodeURIComponent(link?.split("imgurl=")[1]?.split("&tbnid")[0]);
-    return decoded;
+    // let link;
+
+    // for (const [index, element] of elements.entries()) {
+    //     if (index === 17) {
+    //         await element.click();
+    //         link = await element?.evaluate((el) => el.href);
+    //     }
+    // }
+
+    // const decoded = decodeURIComponent(link?.split("imgurl=")[1]?.split("&tbnid")[0]);
+    // return decoded;
 }
+
+// (async()=>{
+//     await getImage({
+//         body: {
+//             barcode: "7290006651730"
+//         }
+//     })
+// })();
 
 module.exports = {
     getImage
