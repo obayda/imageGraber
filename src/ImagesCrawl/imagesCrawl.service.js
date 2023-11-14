@@ -8,7 +8,7 @@ async function getImage(req) {
 
         const page = await browser.newPage();
 
-        const url = `https://www.google.com/search?tbm=isch&q=${query}`;
+        const url = `https://www.google.co.il/search?tbm=isch&q=${query}`;
 
         await page.goto(url, { waitUntil: "networkidle0" });
 
