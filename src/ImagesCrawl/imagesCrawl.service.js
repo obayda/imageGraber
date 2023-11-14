@@ -17,12 +17,14 @@ async function getImage(req) {
 
         try {
             await page.click(acceptCookiesSelector);
+            await page.waitForNavigation({waitUntil: "networkidle0"})
         } catch (error) {
             console.log({
                 acceptCookiesError: error
             })
         }
 
+        await page.waitForSelector(imageSelector);
         const selectImage = await page.$(imageSelector);
         await page.click(imageSelector);
 
